@@ -21,7 +21,7 @@ def detect_lane(frame):
     # and defines a region within them. We use fillPoly function to mask the region. The points follow clockwise order. We then use
     # the bitwise and operator to superimpose this mask on the frame so that we only study the edges found inside the region and thus
     # removing all the unnecessary edges
-    region = np.array([[(0, height - 50), (width // 2, height // 2 + 25), (width // 2 + 75, height // 2 + 25), (width, height - 100), (width // 2 + 25, height), (0, height)]], dtype=np.int32)
+    region = np.array([[(0, height - 50), (width // 2 - 25, height // 2 + 25), (width // 2 + 75, height // 2 + 25), (width, height - 100), (width // 2 + 25, height), (0, height)]], dtype=np.int32)
     cv.fillPoly(mask, region, 255)
     masked_edges = cv.bitwise_and(edges, mask)
 
